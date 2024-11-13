@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.apollomessagemanager.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_sendTextFragment"
+            app:destination="@id/sendTextFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addNumberFragment"
+            app:destination="@id/addNumberFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_contactDetailsFragment"
+            app:destination="@id/contactDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_contactInfoFragment"
+            app:destination="@id/contactInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendTextFragment"
+        android:name="com.example.apollomessagemanager.SendTextFragment"
+        android:label="fragment_send_text"
+        tools:layout="@layout/fragment_send_text" >
+        <action
+            android:id="@+id/action_sendTextFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_sendTextFragment_to_contactDetailsFragment"
+            app:destination="@id/contactDetailsFragment" />
+        <action
+            android:id="@+id/action_sendTextFragment_to_selectedNumberFragment"
+            app:destination="@id/selectedNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNumberFragment"
+        android:name="com.example.apollomessagemanager.AddNumberFragment"
+        android:label="fragment_add_number"
+        tools:layout="@layout/fragment_add_number" >
+        <action
+            android:id="@+id/action_addNumberFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactDetailsFragment"
+        android:name="com.example.apollomessagemanager.ContactDetailsFragment"
+        android:label="fragment_contact_details"
+        tools:layout="@layout/fragment_contact_details" >
+        <action
+            android:id="@+id/action_contactDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_contactDetailsFragment_to_editContactNumberFragment"
+            app:destination="@id/editContactNumberFragment" />
+        <action
+            android:id="@+id/action_contactDetailsFragment_to_sendTextFragment"
+            app:destination="@id/sendTextFragment" />
+        <action
+            android:id="@+id/action_contactDetailsFragment_to_selectedNumberFragment"
+            app:destination="@id/selectedNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editContactNumberFragment"
+        android:name="com.example.apollomessagemanager.EditContactNumberFragment"
+        android:label="fragment_edit_contact_number"
+        tools:layout="@layout/fragment_edit_contact_number" >
+        <action
+            android:id="@+id/action_editContactNumberFragment_to_contactDetailsFragment"
+            app:destination="@id/contactDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactInfoFragment"
+        android:name="com.example.apollomessagemanager.util.ContactInfoFragment"
+        android:label="ContactInfoFragment" >
+        <action
+            android:id="@+id/action_contactInfoFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedNumberFragment"
+        android:name="com.example.apollomessagemanager.SelectedNumberFragment"
+        android:label="fragment_selected_number"
+        tools:layout="@layout/fragment_selected_number" >
+        <action
+            android:id="@+id/action_selectedNumberFragment_to_sendTextFragment"
+            app:destination="@id/sendTextFragment" />
+        <action
+            android:id="@+id/action_selectedNumberFragment_to_contactDetailsFragment"
+            app:destination="@id/contactDetailsFragment" />
+    </fragment>
+</navigation>

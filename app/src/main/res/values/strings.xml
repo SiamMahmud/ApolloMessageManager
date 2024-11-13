@@ -1,3 +1,60 @@
 <resources>
     <string name="app_name">Apollo Message Manager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    //dashBoard
+    <string name="send_message">Send Message</string>
+    <string name="add_number">Add Number</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="phone_number_n">Phone Number : </string>
+    <string name="phone_n">number </string>
+    <string name="btnSave">Save</string>
+    <string name="sendMessage">Send Message</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+    <string name="delete">Delete</string>
+
+    //Login
+    <string name="login_error_msg">Oh no! Your account or password is incorrect, please check again.</string>
+    <string name="login">Login</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot Password!</string>
+    <string name="sign_in">Sign In</string>
+    <string name="error_email">Invalid email</string>
+    <string name="recover">Please enter your Email so we can help you recover your password.</string>
+    <string name="next">Next</string>
+
+    //Bottom Navigation Menu
+    <string name="menu_home_title">Home</string>
+    <string name="menu_send_message">Send Message</string>
+    <string name="menu_contact">Contact</string>
+    <string name="error_number">Must be more then 11 letter</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="profile">Profile</string>
+
+    //contact Info Item
+    <string name="edit_btn">Edit</string>
+    <string name="delete_btn">Delete</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="update_contact_info">Update Contact Number</string>
+    <string name="save">Save</string>
+    <string name="update_massage">Update Successful</string>
+    <string name="update_fail_massage">Failed to update</string>
+    <string name="add_your_number">Add Your Number</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="select_all">Select All</string>
+    <string name="selected_number">Selected Number</string>
+    <string name="select_number">Select Number</string>
+
+    <string-array name="country_codes">
+        <item>+1 (USA)</item>
+        <item>+88 (BANGLADESH)</item>
+
+    </string-array>
+
+
 </resources>
