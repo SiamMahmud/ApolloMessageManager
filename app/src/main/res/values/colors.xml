@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dash_board_background">#F7F9FC</color>
+    <color name="dash_board_text_color">#222B45</color>
+    <color name="background">#F7F9FC</color>
+    <color name="page_title_text_color">#222B45</color>
+    <color name="hint_text_color">#82888A</color>
+    <color name="colorPrimary">#FFFF5949</color>
+    <color name="browse_button">#EDF1F7</color>
+    <color name="black_200">#d9d9d9</color>
+    <color name="black_100">#f2f2f2</color>
+    <color name="black_500">#4d4d4d</color>
+    <color name="blue_500">#9999ff</color>
+    <color name="blue_300">#4d4dff</color>
+    <color name="gray">#82888A</color>
+</resources>
