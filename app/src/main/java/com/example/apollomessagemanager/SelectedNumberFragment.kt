@@ -20,7 +20,6 @@ class SelectedNumberFragment : Fragment() {
     private lateinit var adapter: SelectedNumberAdapter
     lateinit var activityUtil : AMMActivityUtil
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,6 +34,11 @@ class SelectedNumberFragment : Fragment() {
         selectNumArray = arguments?.getStringArrayList("s") ?:  ArrayList()
         adapter = SelectedNumberAdapter(selectNumArray)
         binding.numberListRecycle.adapter = adapter
+
+
+        binding.btnSaveNum.setOnClickListener {
+            findNavController().navigate(R.id.action_selectedNumberFragment_to_sendTextFragment)
+        }
         return binding.root
 
     }
