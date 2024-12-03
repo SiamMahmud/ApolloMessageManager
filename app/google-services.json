@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "9513662002",
+    "project_id": "apollomessagemanager",
+    "storage_bucket": "apollomessagemanager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9513662002:android:56717c3f5d6ca158c9ee2b",
+        "android_client_info": {
+          "package_name": "com.example.apollomessagemanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMLqTScIOcz3VnjEM3ldArnmKrKn6fs_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

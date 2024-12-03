@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/loginInputFragment">
+
+    <fragment
+        android:id="@+id/loginInputFragment"
+        android:name="com.example.apollomessagemanager.login.LoginInputFragment"
+        android:label="fragment_login_input"
+        tools:layout="@layout/fragment_login_input" >
+        <action
+            android:id="@+id/action_loginInputFragment_to_loginForgotPasswordFragment"
+            app:destination="@id/loginForgotPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginForgotPasswordFragment"
+        android:name="com.example.apollomessagemanager.login.LoginForgotPasswordFragment"
+        android:label="fragment_login_forgot_password"
+        tools:layout="@layout/fragment_login_forgot_password" >
+        <action
+            android:id="@+id/action_loginForgotPasswordFragment_to_loginInputFragment"
+            app:destination="@id/loginInputFragment" />
+    </fragment>
+</navigation>
