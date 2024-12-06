@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.apollomessagemanager.R
 import com.example.apollomessagemanager.model.PhoneNumber
 import com.example.apollomessagemanager.model.SelectedNumber
+import com.example.apollomessagemanager.util.SelectedNumbersManager
 
 class SelectedNumberAdapter(private var selectedList: ArrayList<String>) :
     RecyclerView.Adapter<SelectedNumberAdapter.MyViewHolder>() {
@@ -36,5 +37,10 @@ class SelectedNumberAdapter(private var selectedList: ArrayList<String>) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = selectedList[position]
         holder.sNumber.text = currentItem
+        holder.removeBtn.setOnClickListener {
+            selectedList.removeAt(position)
+            SelectedNumbersManager.removeNumber(currentItem)
+            notifyItemRemoved(position)
+        }
     }
 }

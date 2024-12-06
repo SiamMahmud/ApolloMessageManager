@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apollomessagemanager.adapter.ContactDetailsAdapter
 import com.example.apollomessagemanager.databinding.FragmentContactDetailsBinding
 import com.example.apollomessagemanager.model.PhoneNumber
+import com.example.apollomessagemanager.util.SelectedNumbersManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -43,11 +44,9 @@ class ContactDetailsFragment : Fragment() {
         contactArray = arrayListOf()
         adapter = ContactDetailsAdapter(contactArray)
         binding.contactListRecycle.adapter = adapter
-
         binding.selectAllCheckbox.setOnCheckedChangeListener { _, isChecked ->
             adapter.selectAll(isChecked)
         }
-
         binding.searchContact.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return false
@@ -61,10 +60,9 @@ class ContactDetailsFragment : Fragment() {
         })
 
         binding.btnTransfer.setOnClickListener {
-            val selectedContacts = adapter.getSelectedContacts()
-            val selectedNumbers = selectedContacts.map { it.pNumber }
+            val selectedNumbers = ArrayList(SelectedNumbersManager.getSelectedNumbers())
             val bundle = Bundle().apply {
-                putStringArrayList("s", ArrayList(selectedNumbers))
+                putStringArrayList("s", selectedNumbers)
             }
             findNavController().navigate(R.id.action_contactDetailsFragment_to_selectedNumberFragment, bundle)
         }
