@@ -12,6 +12,7 @@ import com.example.apollomessagemanager.adapter.SelectedNumberAdapter
 import com.example.apollomessagemanager.databinding.FragmentSelectedNumberBinding
 import com.example.apollomessagemanager.model.SelectedNumber
 import com.example.apollomessagemanager.util.AMMActivityUtil
+import com.example.apollomessagemanager.util.SelectedNumbersManager
 
 
 class SelectedNumberFragment : Fragment() {
@@ -31,10 +32,9 @@ class SelectedNumberFragment : Fragment() {
             findNavController().popBackStack()
         }
         binding.numberListRecycle.layoutManager = LinearLayoutManager(activity)
-        selectNumArray = arguments?.getStringArrayList("s") ?:  ArrayList()
+        selectNumArray = ArrayList(SelectedNumbersManager.getSelectedNumbers())
         adapter = SelectedNumberAdapter(selectNumArray)
         binding.numberListRecycle.adapter = adapter
-
 
         binding.btnSaveNum.setOnClickListener {
             findNavController().navigate(R.id.action_selectedNumberFragment_to_sendTextFragment)

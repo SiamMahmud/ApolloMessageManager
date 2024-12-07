@@ -10,21 +10,24 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apollomessagemanager.R
 import com.example.apollomessagemanager.model.PhoneNumber
+import com.example.apollomessagemanager.util.SelectedNumbersManager
 
 class ContactDetailsAdapter(private var contactList: ArrayList<PhoneNumber>) :
     RecyclerView.Adapter<ContactDetailsAdapter.MyViewHolder>() {
     var onUpdateItemClick: ((PhoneNumber) -> Unit)? = null
     var onDeleteItemClick: ((PhoneNumber) -> Unit)? = null
 
-    private val selectedContacts = mutableListOf<PhoneNumber>()
-    fun getSelectedContacts(): List<PhoneNumber> = selectedContacts
 
     fun selectAll(isSelected: Boolean) {
-        selectedContacts.clear()
-        if (isSelected) {
-            selectedContacts.addAll(contactList)
-        }
-        notifyDataSetChanged()
+
+            if (isSelected) {
+                for (contact in contactList) {
+                    SelectedNumbersManager.addNumber(contact.pNumber)
+                }
+            } else {
+                SelectedNumbersManager.clearNumbers()
+            }
+            notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -45,12 +48,12 @@ class ContactDetailsAdapter(private var contactList: ArrayList<PhoneNumber>) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = contactList[position]
         holder.cNumber.text = currentItem.pNumber
-        holder.checkbox.isChecked = selectedContacts.contains(currentItem)
+        holder.checkbox.isChecked = SelectedNumbersManager.getSelectedNumbers().contains(currentItem.pNumber)
         holder.checkbox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                selectedContacts.add(currentItem)
+                currentItem.pNumber?.let { SelectedNumbersManager.addNumber(it) }
             } else {
-                selectedContacts.remove(currentItem)
+                currentItem.pNumber?.let { SelectedNumbersManager.removeNumber(it) }
             }
         }
         holder.editBtn.setOnClickListener {
