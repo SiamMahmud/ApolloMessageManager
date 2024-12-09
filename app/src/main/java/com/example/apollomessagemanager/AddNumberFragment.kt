@@ -49,7 +49,7 @@ class AddNumberFragment : Fragment() {
         val phoneNumberStream = RxTextView.textChanges(binding.phoneNumberEt)
             .skipInitialValue()
             .map { phone ->
-                phone.length < 11
+                phone.length < 10
             }
         phoneNumberStream.subscribe {
             binding.phoneNumberEt.error = if (it) getString(R.string.error_number) else null
