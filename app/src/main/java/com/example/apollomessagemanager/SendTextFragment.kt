@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.apollomessagemanager.databinding.FragmentSendTextBinding
 import com.example.apollomessagemanager.util.AMMActivityUtil
+import com.example.apollomessagemanager.util.SelectedNumbersManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -40,7 +41,6 @@ class SendTextFragment : Fragment() {
         binding.backIv.setOnClickListener {
             findNavController().popBackStack()
         }
-
         binding.btnSend.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     requireContext(),
@@ -59,20 +59,39 @@ class SendTextFragment : Fragment() {
         return binding.root
     }
     private fun sendSMS() {
-        val phone = binding.numberTV.text.toString()
         val message = binding.messageEt.text.toString()
-        if (phone.isNotEmpty() && message.isNotEmpty()) {
-            val smsManager = SmsManager.getDefault()
-            smsManager.sendTextMessage(phone, null, message, null, null)
-            Toast.makeText(requireContext(), "SMS sent successfully", Toast.LENGTH_SHORT).show()
 
-            binding.numberTV.setText("")
-            binding.messageEt.setText("")
-
-        } else {
-            Toast.makeText(requireContext(), "Please enter phone and message", Toast.LENGTH_SHORT).show()
+        if (message.isEmpty()) {
+            Toast.makeText(requireContext(), "Please enter a message", Toast.LENGTH_SHORT).show()
+            return
         }
+        if (binding.checkboxSelectedNumber.isChecked) {
+            val selectedNumbers = SelectedNumbersManager.getSelectedNumbers()
+            if (selectedNumbers.isEmpty()) {
+                Toast.makeText(requireContext(), "No numbers selected", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            val smsManager = SmsManager.getDefault()
+            for (phone in selectedNumbers) {
+                smsManager.sendTextMessage(phone, null, message, null, null)
+            }
+            Toast.makeText(requireContext(), "SMS sent to all selected numbers", Toast.LENGTH_SHORT).show()
+        } else {
+            val phone = binding.numberTV.text.toString()
+            if (phone.isNotEmpty()) {
+                val smsManager = SmsManager.getDefault()
+                smsManager.sendTextMessage(phone, null, message, null, null)
+                Toast.makeText(requireContext(), "SMS sent successfully", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Please enter a phone number", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.numberTV.setText("")
+        binding.messageEt.setText("")
     }
+    
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
