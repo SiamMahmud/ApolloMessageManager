@@ -20,8 +20,8 @@
             android:id="@+id/action_homeFragment_to_contactDetailsFragment"
             app:destination="@id/contactDetailsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_contactInfoFragment"
-            app:destination="@id/contactInfoFragment" />
+            android:id="@+id/action_homeFragment_to_profile"
+            app:destination="@id/profile" />
     </fragment>
     <fragment
         android:id="@+id/sendTextFragment"
@@ -75,14 +75,6 @@
             app:destination="@id/contactDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/contactInfoFragment"
-        android:name="com.example.apollomessagemanager.util.ContactInfoFragment"
-        android:label="ContactInfoFragment" >
-        <action
-            android:id="@+id/action_contactInfoFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/selectedNumberFragment"
         android:name="com.example.apollomessagemanager.SelectedNumberFragment"
         android:label="fragment_selected_number"
@@ -93,5 +85,14 @@
         <action
             android:id="@+id/action_selectedNumberFragment_to_contactDetailsFragment"
             app:destination="@id/contactDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.apollomessagemanager.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
