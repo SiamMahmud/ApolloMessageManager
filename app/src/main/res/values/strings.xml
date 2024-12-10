@@ -7,7 +7,7 @@
     //dashBoard
     <string name="send_message">Send Message</string>
     <string name="add_number">Add Number</string>
-    <string name="phone_number">Phone Number</string>
+    <string name="phone_number">+8801..........</string>
     <string name="phone_number_n">Phone Number : </string>
     <string name="phone_n">number </string>
     <string name="btnSave">Save</string>
@@ -51,6 +51,9 @@
     <string name="select_number">Select Number</string>
     <string name="done">Done</string>
     <string name="view_all">View All</string>
+
+    //Profile page
+    <string name="logout">Logout</string>
 
     <string-array name="country_codes">
         <item>+1 (USA)</item>

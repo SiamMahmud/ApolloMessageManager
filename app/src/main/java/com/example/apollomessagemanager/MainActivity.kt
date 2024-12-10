@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() , AMMActivityUtil.ActivityListener{
                 R.id.home -> navHostFragment.findNavController().navigate(R.id.homeFragment)
                 R.id.sendMessage -> navHostFragment.findNavController().navigate(R.id.sendTextFragment)
                 R.id.contactInfo -> navHostFragment.findNavController().navigate(R.id.contactDetailsFragment)
-                R.id.profileInfo -> navHostFragment.findNavController().navigate(R.id.contactInfoFragment)
+                R.id.profileInfo -> navHostFragment.findNavController().navigate(R.id.profile)
             }
             true
         }
