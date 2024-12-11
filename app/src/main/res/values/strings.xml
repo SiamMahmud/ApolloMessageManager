@@ -54,6 +54,8 @@
 
     //Profile page
     <string name="logout">Logout</string>
+    <string name="profile_name">Profile Name</string>
+    <string name="notifications">Notifications</string>
 
     <string-array name="country_codes">
         <item>+1 (USA)</item>
