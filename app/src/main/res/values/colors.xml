@@ -17,4 +17,5 @@
     <color name="gray">#82888A</color>
     <color name="profile_image_background">#82888A</color>
     <color name="red_500">#FFFF5949</color>
+    <color name="progress_bar_background_color">#9d000000</color>
 </resources>

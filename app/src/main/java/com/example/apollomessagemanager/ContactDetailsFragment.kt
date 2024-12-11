@@ -14,20 +14,25 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apollomessagemanager.adapter.ContactDetailsAdapter
 import com.example.apollomessagemanager.databinding.FragmentContactDetailsBinding
 import com.example.apollomessagemanager.model.PhoneNumber
+import com.example.apollomessagemanager.util.AMMActivityUtil
 import com.example.apollomessagemanager.util.SelectedNumbersManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class ContactDetailsFragment : Fragment() {
     private lateinit var binding : FragmentContactDetailsBinding
     private lateinit var contactArray: ArrayList<PhoneNumber>
     private lateinit var adapter: ContactDetailsAdapter
     lateinit var arrayL: Array<String>
     private lateinit var database: DatabaseReference
+    @Inject
+    lateinit var activityUtil : AMMActivityUtil
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -118,16 +123,19 @@ class ContactDetailsFragment : Fragment() {
     }
 
     private fun loadContactInfo() {
+        activityUtil.setFullScreenLoading(true)
         database = FirebaseDatabase.getInstance().getReference("Phone Number")
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
+                    activityUtil.setFullScreenLoading(false)
                     contactArray.clear()
                     for (snap in snapshot.children) {
                         val contact = snap.getValue(PhoneNumber::class.java)
                         contact?.numberId = snap.key
                         if (contact != null) {
                             contactArray.add(contact)
+
                         }
                     }
                     adapter.searchDataList(contactArray)
