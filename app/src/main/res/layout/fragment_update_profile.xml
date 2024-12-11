@@ -49,7 +49,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/save"
-                    android:textColor="@color/red_500"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -69,9 +68,9 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="@dimen/margin_92"
-                    android:layout_height="@dimen/margin_92"
+                    android:layout_height="@dimen/margin_83"
                     android:background="@color/profile_image_background"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:src="@drawable/profile_picture"/>
 
                 <ImageView
                     android:id="@+id/uploadTv"
@@ -96,14 +95,39 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageCv">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/phoneNumberTv"
+                    android:id="@+id/name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20"
                     android:background="@drawable/rounded_editetext_bg"
                     android:textColorHint="@color/hint_text_color"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:passwordToggleTint="@color/hint_text_color"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fullNameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/hint_full_name"
+                        android:inputType="text"
+                        android:paddingLeft="@dimen/padding_14"
+                        android:textColor="@color/page_title_text_color"
+                        android:textSize="@dimen/text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phoneNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:background="@drawable/rounded_editetext_bg"
+                    android:textColorHint="@color/hint_text_color"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
                     app:passwordToggleTint="@color/hint_text_color">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -111,8 +135,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:hint="@string/phone_number"
-                        android:inputType="text"
+                        android:hint="@string/hint_phone_number"
+                        android:inputType="number"
                         android:paddingLeft="@dimen/padding_14"
                         android:textColor="@color/page_title_text_color"
                         android:textSize="@dimen/text_size" />
