@@ -61,7 +61,7 @@ class LoginInputFragment : Fragment() {
         }
         binding.loginErrorTv.visibility = View.GONE
         binding.btnSignIn.setOnClickListener {
-
+            activityUtil.setFullScreenLoading(true)
             val enteredEmail = binding.emailEt.text.toString()
             val enteredPassword = binding.passwordEt.text.toString()
 
@@ -70,8 +70,10 @@ class LoginInputFragment : Fragment() {
                     sharedPrefs.setAuthToken("Rakib")
                     activity?.let {
                         startActivity(MainActivity.getLaunchIntent(it))
+                        activityUtil.setFullScreenLoading(false)
                     }
                 }, 3000)
+
             } else {
                 binding.loginErrorTv.visibility = View.VISIBLE
                 binding.loginErrorTv

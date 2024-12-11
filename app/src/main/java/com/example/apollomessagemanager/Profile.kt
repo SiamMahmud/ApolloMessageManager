@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.example.apollomessagemanager.databinding.FragmentProfileBinding
+import com.example.apollomessagemanager.util.AMMActivityUtil
 import com.example.apollomessagemanager.util.SharePreferencesUtil
 
 import com.google.firebase.database.DataSnapshot
@@ -25,6 +26,8 @@ import javax.inject.Inject
 class Profile : Fragment() {
     val actionUpdateProfile = Navigation.createNavigateOnClickListener(R.id.action_profile_to_updateProfile)
 
+    @Inject
+    lateinit var activityUtil: AMMActivityUtil
     @Inject
     lateinit var sharedPrefs: SharePreferencesUtil
     lateinit var binding: FragmentProfileBinding
@@ -50,8 +53,10 @@ class Profile : Fragment() {
     }
 
     private fun loadUserData() {
+        activityUtil.setFullScreenLoading(true)
         database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                activityUtil.setFullScreenLoading(false)
                 val name = snapshot.child("name").getValue(String::class.java)
                 val phone = snapshot.child("phone").getValue(String::class.java)
 

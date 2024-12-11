@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -61,7 +62,13 @@ class MainActivity : AppCompatActivity() , AMMActivityUtil.ActivityListener{
     }
 
     override fun setFullScreenLoading(short: Boolean) {
-        TODO("Not yet implemented")
+        if (short) {
+            binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+            binding.fullscreenLoading.visibility = View.VISIBLE
+        } else {
+            binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+            binding.fullscreenLoading.visibility = View.GONE
+        }
     }
 
     override fun closeKeyboard() {

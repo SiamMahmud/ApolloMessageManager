@@ -56,23 +56,27 @@ class AddNumberFragment : Fragment() {
         }
 
         binding.btnSave.setOnClickListener {
+            activityUtil.setFullScreenLoading(true)
             val countryCode = binding.ccpGetFullNumber.selectedCountryCodeWithPlus
             val phoneNumber = binding.phoneNumberEt.text.toString().trim()
             val fullNumber = "$countryCode$phoneNumber"
 
             database = FirebaseDatabase.getInstance().getReference("Phone Number")
             val numId = database.push().key ?: return@setOnClickListener
-            val adminBloodBank = PhoneNumber(
+            val adminPhoneNumber = PhoneNumber(
                 pNumber = fullNumber
             )
-            database.child(numId).setValue(adminBloodBank).addOnCompleteListener { task ->
+            database.child(numId).setValue(adminPhoneNumber).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     showSuccessDialog()
+                    activityUtil.setFullScreenLoading(false)
                 } else {
+                    activityUtil.setFullScreenLoading(false)
                     Toast.makeText(
                         requireContext(),
                         "Failed to add entry. Please try again.",
                         Toast.LENGTH_SHORT
+
                     ).show()
                 }
             }
