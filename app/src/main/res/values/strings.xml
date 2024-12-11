@@ -57,6 +57,13 @@
     <string name="profile_name">Profile Name</string>
     <string name="notifications">Notifications</string>
 
+    //Update Profile
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_phone_number">Phone number</string>
+    <string name="error_name">name can not be empty</string>
+    <string name="successful_message">Data save successfully</string>
+    <string name="error_message">Data saving error</string>
+
     <string-array name="country_codes">
         <item>+1 (USA)</item>
         <item>+88 (BANGLADESH)</item>

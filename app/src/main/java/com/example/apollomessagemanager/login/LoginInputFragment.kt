@@ -62,12 +62,20 @@ class LoginInputFragment : Fragment() {
         binding.loginErrorTv.visibility = View.GONE
         binding.btnSignIn.setOnClickListener {
 
-            Handler().postDelayed({
-                sharedPrefs.setAuthToken("Rakib")
-                activity?.let {
-                    startActivity(MainActivity.getLaunchIntent(it))
-                }
-            }, 3000)
+            val enteredEmail = binding.emailEt.text.toString()
+            val enteredPassword = binding.passwordEt.text.toString()
+
+            if (enteredEmail == "admin@gmail.com" && enteredPassword == "admin12345") {
+                Handler().postDelayed({
+                    sharedPrefs.setAuthToken("Rakib")
+                    activity?.let {
+                        startActivity(MainActivity.getLaunchIntent(it))
+                    }
+                }, 3000)
+            } else {
+                binding.loginErrorTv.visibility = View.VISIBLE
+                binding.loginErrorTv
+            }
         }
         return binding.root
     }
