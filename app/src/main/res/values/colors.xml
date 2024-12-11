@@ -16,4 +16,5 @@
     <color name="blue_300">#4d4dff</color>
     <color name="gray">#82888A</color>
     <color name="profile_image_background">#82888A</color>
+    <color name="red_500">#FFFF5949</color>
 </resources>

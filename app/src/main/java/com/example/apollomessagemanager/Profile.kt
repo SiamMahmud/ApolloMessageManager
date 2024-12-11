@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import com.example.apollomessagemanager.databinding.FragmentProfileBinding
 import com.example.apollomessagemanager.util.SharePreferencesUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,6 +15,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class Profile : Fragment() {
+    val actionUpdateProfile = Navigation.createNavigateOnClickListener(R.id.action_profile_to_updateProfile)
 
     @Inject
     lateinit var sharedPrefs: SharePreferencesUtil
